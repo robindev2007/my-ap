@@ -10,13 +10,15 @@ export default function TabLayout() {
       screenOptions={{
         animation: "shift",
         headerShown: true,
+        tabBarHideOnKeyboard: true,
+        headerStyle: {
+          backgroundColor: colors.card,
+          borderBottomColor: "transparent",
+        },
 
         headerTitleStyle: {
-          color: colors.text,
-        },
-        headerStyle: {
-          backgroundColor: "transparent",
-          borderBottomColor: "transparent",
+          fontWeight: "600",
+          color: colors.foreground,
         },
 
         tabBarStyle: {
@@ -30,7 +32,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="notes/index"
+        name="index"
         options={{
           title: "Notes",
           tabBarIcon: ({ color }) => (

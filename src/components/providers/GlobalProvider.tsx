@@ -1,3 +1,5 @@
+import { BottomSheetProvider } from "@/contexts/BottomSheetContext";
+import { TodoContextProvider } from "@/contexts/todos/TodoContext";
 import { ThemeProvider } from "@/contexts/useThemeContext";
 import { store } from "@/redux/store";
 import React from "react";
@@ -9,8 +11,12 @@ export default function GlobalProvider({
   children: React.ReactNode;
 }) {
   return (
-    <Provider store={store}>
-      <ThemeProvider>{children}</ThemeProvider>
-    </Provider>
+    <TodoContextProvider>
+      <Provider store={store}>
+        <ThemeProvider>
+          <BottomSheetProvider>{children}</BottomSheetProvider>
+        </ThemeProvider>
+      </Provider>
+    </TodoContextProvider>
   );
 }

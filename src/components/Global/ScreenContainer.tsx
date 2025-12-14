@@ -1,3 +1,4 @@
+import { useThemeContext } from "@/contexts/useThemeContext";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { View, ViewProps } from "react-native";
@@ -12,9 +13,15 @@ export default function ScreenContainer({
   className,
   ...props
 }: ContainerProps) {
+  const { theme } = useThemeContext();
+
   return (
     <View
-      className={cn("bg-background text-foreground flex-1 p-3", className)}
+      className={cn(
+        theme,
+        "bg-background text-foreground flex-1 p-3",
+        className,
+      )}
       {...props}
     >
       {children}
